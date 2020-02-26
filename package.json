@@ -1,0 +1,45 @@
+{
+  "name": "usr-backend",
+  "version": "1.0.0",
+  "description": "backend for USR website",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^4.0.0",
+    "bunyan": "^1.8.12",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "promisify": "0.0.3",
+    "sequelize": "^5.21.5"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "nodemon": "^2.0.2",
+    "sequelize-cli": "^5.5.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:start": "nodemon index.js | bunyan -o short -l debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Udruga-Studenata-Racunalstva/usr-backend.git"
+  },
+  "keywords": [
+    "USR",
+    "Website",
+    "Backend"
+  ],
+  "author": "Luciano Peranni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Udruga-Studenata-Racunalstva/usr-backend/issues"
+  },
+  "homepage": "https://github.com/Udruga-Studenata-Racunalstva/usr-backend#readme"
+}
