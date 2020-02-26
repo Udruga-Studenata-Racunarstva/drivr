@@ -1,10 +1,10 @@
 
 const express = require('express');
-const dotenv = require('dotenv');
+require('dotenv').config();
+const routeList = require('express-routes-catalogue');
 const logger = require('./shared/logger');
 const router = require('./router');
 
-dotenv.config();
 
 function requestLogger(req, res, next) {
   logger.info({ req });
@@ -12,6 +12,12 @@ function requestLogger(req, res, next) {
 }
 
 const app = express();
+
+// For terminal output
+if (process.env.NODE_ENV === 'development') {
+  routeList.terminal(app);
+}
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
