@@ -1,21 +1,26 @@
+### Basic request
 GET http://localhost:5005/api
-###
+### Basic request 2
 GET http://localhost:5005/api/example
-###
+### Register
 POST http://localhost:5005/api/user/register
 Content-Type: application/json
 
 {
-  "email": "Stevo@mail.net",
+  "email": "ivo@mail.net",
   "password": "asdf",
-  "firstName": "Stefan",
+  "firstName": "Ivan",
   "lastName": "Simic" 
 }
-###
+### Login
 POST http://localhost:5005/api/user/login
 Content-Type: application/json
 
 {
-  "email": "Stevo@mail.net",
+  "email": "ivo@mail.net",
   "password": "asdf"
 }
+### Check if logged in
+GET http://localhost:5005/api/user/check
+### Logout
+DELETE http://localhost:5005/api/user/logout

@@ -10,9 +10,6 @@ class User extends Model {
     return {
       email: {
         type: STRING,
-        set(email) {
-          this.setDataValue('email', email.toLowerCase());
-        },
         validate: { isEmail: true },
         unique: { msg: 'The specified email address is already in use.' },
       },

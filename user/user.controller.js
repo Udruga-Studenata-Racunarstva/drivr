@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const { User } = require('../shared/database');
 
 const createUser = (req, res) => {
@@ -14,6 +13,10 @@ const createUser = (req, res) => {
   }).then((data) => res.json(data)).catch((err) => res.json(err));
 };
 
+const check = (req, res) => {
+  res.json('We are in');
+};
+
 const login = (req, res) => {
   const { email, password } = req.body;
   User.findOne({
@@ -27,4 +30,4 @@ const login = (req, res) => {
   }).catch((err) => res.json(err));
 };
 
-module.exports = { createUser, login };
+module.exports = { createUser, login, check };

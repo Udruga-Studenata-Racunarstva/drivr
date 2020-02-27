@@ -12,15 +12,21 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 passport.serializeUser((user, done) => {
   done(null, user);
 });
-passport.deserializeUser((id, done) => {
-  done(null, id);
+passport.deserializeUser((user, done) => {
+  done(null, user);
 });
 
 module.exports = {
-  initialize(options = {}) {
-    return passport.initialize(options);
+  initialize() {
+    return passport.initialize({ usernameField: 'email' });
   },
-  authenticate(strategy, options = {}) {
-    return passport.authenticate(strategy, { ...options, failWithError: true });
+  authenticate(strategy) {
+    return passport.authenticate(strategy, { usernameField: 'email', failWithError: true });
+  },
+  checkIfAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    return res.json('Nope');
   },
 };

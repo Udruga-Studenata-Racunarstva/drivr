@@ -8,7 +8,8 @@ module.exports = {
     },
     email: {
       type: Sequelize.STRING,
-      unique: { msg: 'The specified email address is already in use.' },
+      unique: true,
+      allowNull: false,
     },
     password: {
       type: Sequelize.STRING,
