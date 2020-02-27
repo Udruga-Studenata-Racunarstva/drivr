@@ -1,3 +1,21 @@
 GET http://localhost:5005/api
-####
+###
 GET http://localhost:5005/api/example
+###
+POST http://localhost:5005/api/user/register
+Content-Type: application/json
+
+{
+  "email": "Stevo@mail.net",
+  "password": "asdf",
+  "firstName": "Stefan",
+  "lastName": "Simic" 
+}
+###
+POST http://localhost:5005/api/user/login
+Content-Type: application/json
+
+{
+  "email": "Stevo@mail.net",
+  "password": "asdf"
+}

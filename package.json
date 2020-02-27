@@ -8,9 +8,13 @@
     "bunyan": "^1.8.12",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
     "jest": "^25.1.0",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "pg": "^7.18.2",
     "pg-hstore": "^2.3.3",
@@ -25,10 +29,12 @@
     "sequelize-cli": "^5.5.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev:start": "nodemon index.js | bunyan -o short -l debug",
     "db:create": "sequelize db:create",
-    "db:drop": "sequelize db:drop"
+    "db:drop": "sequelize db:drop",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:revert": "sequelize db:migrate:undo:all"
   },
   "repository": {
     "type": "git",
