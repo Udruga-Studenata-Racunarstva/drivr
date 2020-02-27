@@ -1,6 +1,6 @@
 
 const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const { Model } = require('sequelize');
 
 class User extends Model {
@@ -86,6 +86,15 @@ class User extends Model {
   // eslint-disable-next-line class-methods-use-this
   encrypt(val) {
     return bcrypt.hash(val, 10);
+  }
+
+  generateToken() {
+    const payload = { id: this.id, email: this.email };
+    const options = {
+      issuer: process.env.AUTH_JWT_ISSUER,
+      expiresIn: '5 days',
+    };
+    return jwt.sign(payload, process.env.AUTH_JWT_SECRET, options);
   }
 
   encryptPassword() {

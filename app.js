@@ -5,10 +5,10 @@ const session = require('express-session');
 const logger = require('./shared/logger');
 const router = require('./router');
 
-if (process.env.NODE_ENV !== 'production') {
-  // eslint-disable-next-line global-require
-  require('dotenv').config();
-}
+// if (process.env.NODE_ENV !== 'production') {
+// eslint-disable-next-line global-require
+require('dotenv').config();
+// }
 
 
 function requestLogger(req, res, next) {

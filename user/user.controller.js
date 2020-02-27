@@ -17,17 +17,9 @@ const check = (req, res) => {
   res.json('We are in');
 };
 
-const login = (req, res) => {
-  const { email, password } = req.body;
-  User.findOne({
-    where: {
-      email,
-    },
-  }).then(async (user) => {
-    if (await user.authenticate(password)) {
-      res.json('Successfully logged in');
-    }
-  }).catch((err) => res.json(err));
+const login = ({ user }, res) => {
+  const token = user.generateToken();
+  return res.json({ data: { token, user: user.email } });
 };
 
 module.exports = { createUser, login, check };

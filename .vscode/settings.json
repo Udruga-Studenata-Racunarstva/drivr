@@ -1,13 +1,14 @@
 {
   "sqltools.connections": [
     {
-      "askForPassword": false,
       "database": "usr",
       "dialect": "PostgreSQL",
       "name": "USR",
+      "password": "speedy900",
       "port": 5432,
       "server": "localhost",
-      "username": "luciano"
+      "username": "postgres"
     }
-  ]
+  ],
+  "npm-scripts.showStartNotification": false
 }
