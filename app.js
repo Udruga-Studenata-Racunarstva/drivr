@@ -20,14 +20,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(flash());
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  saveUninitialized: false,
-  resave: false,
-}));
 app.use(passport.initialize());
-app.use(passport.session());
 
 
 app.use('/api', requestLogger, router);

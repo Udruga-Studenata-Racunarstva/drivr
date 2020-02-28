@@ -10,6 +10,6 @@ router
     req.logOut();
     res.json('Logged out successfully');
   })
-  .get('/check', checkIfAuthenticated, ctrl.check);
+  .get('/check', authenticate('jwt'), ctrl.check);
 
 module.exports = router;

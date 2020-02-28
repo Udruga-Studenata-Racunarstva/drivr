@@ -1,3 +1,4 @@
+const pick = require('lodash/pick');
 const { User } = require('../shared/database');
 
 const createUser = (req, res) => {
@@ -18,8 +19,9 @@ const check = (req, res) => {
 };
 
 const login = ({ user }, res) => {
+  console.log(user.generateToken());
   const token = user.generateToken();
-  return res.json({ data: { token, user: user.email } });
+  return res.json({ data: { token, user: pick(user, ['fullName', 'email', 'password']) } });
 };
 
 module.exports = { createUser, login, check };

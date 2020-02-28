@@ -26,6 +26,7 @@ Content-Type: application/json
 
 ### Check if logged in
 GET http://localhost:5005/api/user/check
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpdm9AbWFpbC5uZXQiLCJpYXQiOjE1ODI4OTY3NjAsImF1ZCI6ImFsbCIsImlzcyI6InVzciJ9.l8y8yPJ9GzCvJ2FKmsrSCMdTUjCFZgLFSBRjC7jB1Fw
 
 ### Logout
 DELETE http://localhost:5005/api/user/logout

@@ -1,8 +1,8 @@
 const LocalStrategy = require('passport-local').Strategy;
 const { ExtractJwt, Strategy } = require('passport-jwt');
-const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const { User } = require('../database');
+const logger = require('../logger');
 
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => User.findOne({ where: { email } })
@@ -17,10 +17,10 @@ const jwtOptions = {
   audience: 'usr.st',
 };
 
-passport.use(new Strategy({ ...jwtOptions }, (payload, done) => {
-  User.findByPk(payload.id)
-    .then((user) => done(null, user || false))
-    .error((err) => done(err, false));
+passport.use(new Strategy({ ...jwtOptions }, ({ id, email }, done) => {
+  User.findOne({ where: { id } })
+    .then((user) => done(null, user || false, { message: 'Logged in successfully' }))
+    .error((err) => done(err, false, { message: 'Incorrect something' }));
 }));
 
 passport.serializeUser((user, done) => {
