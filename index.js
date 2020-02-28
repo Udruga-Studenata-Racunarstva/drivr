@@ -1,5 +1,3 @@
-// const { promisify } = require('util');
-// const sequelize = require('sequelize');
 const { promisify } = require('util');
 const app = require('./app');
 const logger = require('./shared/logger');
