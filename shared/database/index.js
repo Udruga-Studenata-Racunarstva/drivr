@@ -1,12 +1,15 @@
 const Sequelize = require('sequelize');
 const invoke = require('lodash/invoke');
+const forEach = require('lodash/forEach');
 const Example = require('../../example/example.model');
+const User = require('../../user/user.model');
+const Hooks = require('./hooks');
 require('dotenv').config();
 
 const dbConfig = {
   host: process.env.DATABASE_HOST,
   database: process.env.DATABASE_NAME,
-  user: process.env.DATABASE_USER,
+  username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   port: process.env.DATABASE_PORT,
   dialect: process.env.DATABASE_ADAPTER || 'postgres',
@@ -22,9 +25,20 @@ function defineModel(Model, connection = sequelize) {
   return Model.init(fields, options);
 }
 
+function addHooks(model, Hooks, models) {
+  const hooks = invoke(model, 'hooks', Hooks, models);
+  forEach(hooks, (it, type) => model.addHook(type, it));
+}
+
 const models = {
   Example: defineModel(Example),
+  User: defineModel(User),
 };
+
+forEach(models, (model) => {
+  invoke(model, 'associate', models);
+  addHooks(model, Hooks, models);
+});
 
 
 const db = {

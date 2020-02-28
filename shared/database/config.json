@@ -1,11 +1,10 @@
 {
   "development": {
     "username": "luciano",
-    "password": null,
+    "password": "",
     "database": "usr",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "host": "localhost",
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",

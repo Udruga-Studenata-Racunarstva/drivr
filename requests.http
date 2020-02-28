@@ -1,3 +1,32 @@
+### Basic request
 GET http://localhost:5005/api
-####
+
+### Basic request 2
 GET http://localhost:5005/api/example
+
+### Register
+POST http://localhost:5005/api/user/register
+Content-Type: application/json
+
+{
+  "email": "ivo@mail.net",
+  "password": "asdf",
+  "firstName": "Ivan",
+  "lastName": "Simic" 
+}
+
+### Login
+POST http://localhost:5005/api/user/login
+Content-Type: application/json
+
+{
+  "email": "ivo@mail.net",
+  "password": "asdf"
+}
+
+### Check if logged in
+GET http://localhost:5005/api/user/check
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpdm9AbWFpbC5uZXQiLCJpYXQiOjE1ODI4OTk1MzcsImF1ZCI6InNjb3BlOnNldHVwIiwiaXNzIjoidXNyIn0.hQcOZi78C9dArxcdZoLjWw4wQKYteJxFJJUrog3UcCw
+
+### Logout
+DELETE http://localhost:5005/api/user/logout
