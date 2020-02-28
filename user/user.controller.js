@@ -19,7 +19,6 @@ const check = (req, res) => {
 };
 
 const login = ({ user }, res) => {
-  console.log(user.generateToken());
   const token = user.generateToken();
   return res.json({ data: { token, user: pick(user, ['fullName', 'email', 'password']) } });
 };

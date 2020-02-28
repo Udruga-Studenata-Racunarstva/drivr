@@ -2,7 +2,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const { ExtractJwt, Strategy } = require('passport-jwt');
 const passport = require('passport');
 const { User } = require('../database');
-const logger = require('../logger');
 
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => User.findOne({ where: { email } })
@@ -11,16 +10,16 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
   .error((err) => done(err, false))));
 
 const jwtOptions = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme(process.env.AUTH_JWT_SCHEME),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
   secretOrKey: process.env.AUTH_JWT_SECRET || 'secret',
   issuer: process.env.AUTH_JWT_ISSUER || 'usr',
-  audience: 'usr.st',
+  audience: 'scope:setup',
 };
 
-passport.use(new Strategy({ ...jwtOptions }, ({ id, email }, done) => {
-  User.findOne({ where: { id } })
-    .then((user) => done(null, user || false, { message: 'Logged in successfully' }))
-    .error((err) => done(err, false, { message: 'Incorrect something' }));
+passport.use(new Strategy({ ...jwtOptions }, (payload, done) => {
+  User.findOne({ where: { id: payload.id }, raw: true })
+    .then((user) => done(null, user || false))
+    .error((err) => done(err, false));
 }));
 
 passport.serializeUser((user, done) => {

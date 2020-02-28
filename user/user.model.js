@@ -92,7 +92,7 @@ class User extends Model {
     const payload = { id: this.id, email: this.email };
     Object.assign(options, {
       issuer: process.env.AUTH_JWT_ISSUER,
-      audience: 'all',
+      audience: 'scope:setup',
     });
     return jwt.sign(payload, process.env.AUTH_JWT_SECRET, options);
   }
