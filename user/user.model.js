@@ -88,12 +88,12 @@ class User extends Model {
     return bcrypt.hash(val, 10);
   }
 
-  generateToken() {
+  generateToken(options = {}) {
     const payload = { id: this.id, email: this.email };
-    const options = {
+    Object.assign(options, {
       issuer: process.env.AUTH_JWT_ISSUER,
-      expiresIn: '5 days',
-    };
+      audience: 'scope:setup',
+    });
     return jwt.sign(payload, process.env.AUTH_JWT_SECRET, options);
   }
 

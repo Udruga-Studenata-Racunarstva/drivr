@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const ctrl = require('./user.controller');
-const { authenticate, checkIfAuthenticated } = require('../shared/auth');
+const { authenticate } = require('../shared/auth');
 
 
 router
@@ -10,7 +10,8 @@ router
     req.logOut();
     res.json('Logged out successfully');
   })
-  .get('/check', checkIfAuthenticated, ctrl.check);
+  .use(authenticate('jwt'))
+  .get('/check', ctrl.check);
 
 
 module.exports = router;
