@@ -12,4 +12,5 @@ router
   })
   .get('/check', checkIfAuthenticated, ctrl.check);
 
+
 module.exports = router;
