@@ -4,7 +4,15 @@ const {
   host, port, secure, auth,
 } = require('./config');
 
-async function sendMail() {
+const { render, renderText } = require('./render');
+
+async function sendMail(options, templateName) {
+  const {
+    to, subject, data,
+  } = options;
+  const html = await render(templateName, data);
+  const text = renderText(templateName, data);
+
   const transporter = nodemailer.createTransport({
     host,
     port,
@@ -16,11 +24,13 @@ async function sendMail() {
   });
 
   const info = await transporter.sendMail({
-    from: 'admin@usr.st', // sender address
-    to: 'luciano.peranni@usr.st', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world?', // plain text body
-    html: '<b>Hello world?</b>', // html body
+    from: auth.user,
+    to,
+    subject,
+    text,
+    html,
   });
   logger.info('Message sent: %s', info.messageId);
 }
+
+module.exports = { sendMail };

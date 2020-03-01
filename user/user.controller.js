@@ -22,4 +22,6 @@ const login = ({ user }, res) => {
   return res.json({ data: { token, user: user.email } });
 };
 
-module.exports = { createUser, login, check };
+module.exports = {
+  createUser, login, check, send,
+};
