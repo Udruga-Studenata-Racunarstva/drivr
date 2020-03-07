@@ -11,7 +11,8 @@ router
     res.json('Logged out successfully');
   })
   .use(authenticate('jwt'))
-  .get('/check', ctrl.check);
+  .get('/check', ctrl.check)
+  .get('/', ctrl.getAll);
 
 
 module.exports = router;

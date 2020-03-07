@@ -22,7 +22,11 @@ const login = ({ user }, res) => {
   const token = user.generateToken();
   return res.json({ data: { token, user: pick(user, ['fullName', 'email', 'password']) } });
 };
+const getAll = (req, res) => {
+  User.findAll()
+    .then((data) => res.json(data));
+};
 
 module.exports = {
-  createUser, login, check, send,
+  createUser, login, check, getAll,
 };

@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const example = require('./example');
+const event = require('./event');
 const user = require('./user');
 
 router.get('/', (req, res) => {
   res.send('Hello');
 });
 
-router.use('/example', example);
 router.use('/user', user);
+router.use('/event', event);
 
 module.exports = router;

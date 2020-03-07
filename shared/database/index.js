@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const invoke = require('lodash/invoke');
 const forEach = require('lodash/forEach');
-const Example = require('../../example/example.model');
 const User = require('../../user/user.model');
+const Event = require('../../event/event.model');
 const Hooks = require('./hooks');
 require('dotenv').config();
 
@@ -25,14 +25,14 @@ function defineModel(Model, connection = sequelize) {
   return Model.init(fields, options);
 }
 
-function addHooks(model, Hooks, models) {
+function addHooks(model, models) {
   const hooks = invoke(model, 'hooks', Hooks, models);
   forEach(hooks, (it, type) => model.addHook(type, it));
 }
 
 const models = {
-  Example: defineModel(Example),
   User: defineModel(User),
+  Event: defineModel(Event),
 };
 
 forEach(models, (model) => {

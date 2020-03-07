@@ -1,8 +1,10 @@
 ### Basic request
 GET http://localhost:5005/api
 
-### Basic request 2
-GET http://localhost:5005/api/example
+### Get All Users
+GET http://localhost:5005/api/user
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpdm9AbWFpbC5uZXQiLCJpYXQiOjE1ODMzNTk2NTEsImF1ZCI6InNjb3BlOnNldHVwIiwiaXNzIjoidXNyIn0.Z9Kr50sTyuznMCsvG5G6YjjwrFRDyIVfwCoKq5Nt9uk
+
 
 ### Register
 POST http://localhost:5005/api/user/register
