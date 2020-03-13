@@ -1,14 +1,17 @@
 const { Model } = require('sequelize');
 
-class Event extends Model {
+class Location extends Model {
   static fields({
-    DATE, ENUM,
+    STRING, DATE,
   }) {
     return {
-      type: {
-        type: ENUM,
-        values: ['PUBQUIZ', 'BOARDGAME', 'LECTURE', 'KARAOKE'],
-        unique: { msg: 'The specified email address is already in use.' },
+      name: {
+        type: STRING,
+        allowNull: false,
+      },
+      contactNumber: {
+        type: STRING,
+        allowNull: true,
       },
       createdAt: {
         type: DATE,
@@ -25,19 +28,20 @@ class Event extends Model {
     };
   }
 
-  static associate({ Location }) {
-    this.hasOne(Location, {
+  static associate({ Event }) {
+    this.belongsToMany(Event, {
       foreignKey: { name: 'locationId', field: 'location_id' },
     });
   }
 
   static options() {
     return {
-      modelName: 'event',
+      modelName: 'location',
       timestamps: true,
       paranoid: true,
       freezeTableName: true,
     };
   }
 }
-module.exports = Event;
+
+module.exports = Location;
