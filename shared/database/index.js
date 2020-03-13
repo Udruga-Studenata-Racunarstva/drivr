@@ -3,6 +3,7 @@ const invoke = require('lodash/invoke');
 const forEach = require('lodash/forEach');
 const User = require('../../user/user.model');
 const Event = require('../../event/event.model');
+const Location = require('../../location/location.model');
 const Hooks = require('./hooks');
 require('dotenv').config();
 
@@ -33,6 +34,7 @@ function addHooks(model, models) {
 const models = {
   User: defineModel(User),
   Event: defineModel(Event),
+  Location: defineModel(Location),
 };
 
 forEach(models, (model) => {

@@ -2,13 +2,24 @@ const { Model } = require('sequelize');
 
 class Event extends Model {
   static fields({
-    DATE, ENUM,
+    DATE, ENUM, TEXT, STRING,
   }) {
     return {
       type: {
         type: ENUM,
         values: ['PUBQUIZ', 'BOARDGAME', 'LECTURE', 'KARAOKE'],
         unique: { msg: 'The specified email address is already in use.' },
+      },
+      description: {
+        type: TEXT,
+      },
+      eventDate: {
+        type: DATE,
+        field: 'event_date',
+      },
+      imgUrl: {
+        type: STRING,
+        field: 'img_url',
       },
       createdAt: {
         type: DATE,

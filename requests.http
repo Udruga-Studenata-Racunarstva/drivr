@@ -28,7 +28,7 @@ Content-Type: application/json
 
 ### Check if logged in
 GET http://localhost:5005/api/user/check
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpdm9AbWFpbC5uZXQiLCJpYXQiOjE1ODI4OTk1MzcsImF1ZCI6InNjb3BlOnNldHVwIiwiaXNzIjoidXNyIn0.hQcOZi78C9dArxcdZoLjWw4wQKYteJxFJJUrog3UcCw
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpdm9AbWFpbC5uZXQiLCJpYXQiOjE1ODQxMDMzNzIsImF1ZCI6InNjb3BlOnNldHVwIiwiaXNzIjoidXNyIn0.UIgMdviDWzBO8ZShyZ53v6VBnEyEJrbLSKqW5dvw_WU
 
 ### Logout
 DELETE http://localhost:5005/api/user/logout

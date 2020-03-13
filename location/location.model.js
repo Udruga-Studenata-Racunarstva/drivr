@@ -29,7 +29,7 @@ class Location extends Model {
   }
 
   static associate({ Event }) {
-    this.belongsToMany(Event, {
+    this.belongsTo(Event, {
       foreignKey: { name: 'locationId', field: 'location_id' },
     });
   }
