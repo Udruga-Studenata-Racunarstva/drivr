@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+ text-align: center;
+ padding: 0;
+}
+
+h1 {
+  color: white;
+  background-color: rgb(3, 116, 3);
+  margin: 0;
+  padding: 15px;
+}

@@ -24,5 +24,5 @@ const login = ({ user }, res) => {
 };
 
 module.exports = {
-  createUser, login, check, send,
+  createUser, login, check,
 };

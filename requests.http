@@ -4,6 +4,15 @@ GET http://localhost:5005/api
 ### Basic request 2
 GET http://localhost:5005/api/example
 
+### Email test
+POST http://localhost:5005/api/example/invite
+Content-Type: application/json
+
+{
+  "title": "Dobrodosli",
+  "text": "Ovim vas putem srdacno pozivamo na kviz"
+}
+
 ### Register
 POST http://localhost:5005/api/user/register
 Content-Type: application/json
