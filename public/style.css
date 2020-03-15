@@ -6,6 +6,14 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+.logo-icon {
+  color: green;
+  border-radius: 295px;
+  padding-left: 15px;
+}
+.nav-list {
+  padding-right: 15px;
+}
 
 main {
   flex: 1 0 auto;

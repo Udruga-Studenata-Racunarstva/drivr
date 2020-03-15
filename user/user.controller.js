@@ -22,7 +22,6 @@ const login = ({ user }, res) => {
   const token = user.generateToken();
   res.cookie('token', token);
   res.cookie('user', pick(user, ['fullName', 'email', 'password']));
-  res.redirect('/app');
   return res.json({ data: { token, user: pick(user, ['fullName', 'email', 'password']) } });
 };
 const getAll = (req, res) => {

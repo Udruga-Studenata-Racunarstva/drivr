@@ -8,7 +8,7 @@ router
   .post('/login', authenticate('local'), ctrl.login)
   .delete('/logout', (req, res) => {
     req.logOut();
-    res.json('Logged out successfully');
+    res.redirect('app/login');
   })
   .use(authenticate('jwt'))
   .get('/check', ctrl.check)

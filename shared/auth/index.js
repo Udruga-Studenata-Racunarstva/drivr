@@ -34,12 +34,14 @@ module.exports = {
     return passport.initialize({ usernameField: 'email' });
   },
   authenticate(strategy) {
-    return passport.authenticate(strategy, { usernameField: 'email', failWithError: true });
+    return passport.authenticate(strategy, {
+      usernameField: 'email', failWithError: true, failureRedirect: '/login', successRedirect: '/',
+    });
   },
   checkIfAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     }
-    return res.json('Nope');
+    return res.redirect('/login');
   },
 };

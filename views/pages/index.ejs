@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
 <%- include('../components/head') -%>
+
 <body>
-<%- include('../components/header') -%>
-<main class="container">
-  body
-</main>
-<%- include('../components/footer') -%>
+  <%- include('../components/header') -%>
+  </div>
+  <main class="container">
+    <div class="row">
+      <p class="left grey-text grey-lighten-2">Dashboard</p>
+    </div>
+    <table class="responsive-table striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td>Alvin</td>
+          <td>Eclair</td>
+          <td>$0.87</td>
+        </tr>
+        <tr>
+          <td>Alan</td>
+          <td>Jellybean</td>
+          <td>$3.76</td>
+        </tr>
+        <tr>
+          <td>Jonathan</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <%- include('../components/footer') -%>
 </body>
 
 </html>

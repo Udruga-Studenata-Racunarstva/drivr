@@ -4,6 +4,7 @@
   "description": "backend for USR website",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcrypt": "^4.0.0",
     "bunyan": "^1.8.12",
     "dotenv": "^8.2.0",
@@ -18,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "materialize-css": "^1.0.0-rc.2",
+    "method-override": "^3.0.0",
     "multer": "^1.4.2",
     "nodemailer": "^6.4.3",
     "passport": "^0.4.1",
