@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<%- include('../components/head') -%>
+
+<body>
+  <%- include('../components/header') -%>
+  <main class="container">
+   <h1>Login</h1>
+    <!-- LOGIN FORM -->
+    <form action="/api/user/login" method="post">
+      <div>
+        <label>Email</label>
+        <input type="text" class="input-field" name="email">
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" class="input-field" name="password">
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Login
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+
+    </div>
+  </main>
+  <%- include('../components/footer') -%>
+</body>
+
+</html>
