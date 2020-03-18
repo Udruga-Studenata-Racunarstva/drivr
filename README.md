@@ -1,13 +1,14 @@
-<h1 align="center">USR API</h1>
+<h1 align="center">Drivr</h1>
 <p>
   <img alt="Version" 
-  src="https://img.shields.io/github/package-json/v/Udruga-Studenata-Racunalstva/usr-backend" />
-  <a href="https://github.com/Udruga-Studenata-Racunalstva/usr-website/blob/master/LICENSE" target="_blank">
+  src="https://img.shields.io/github/package-json/v/Udruga-Studenata-Racunarstva/drivr" />
+  <a href="https://github.com/Udruga-Studenata-Racunarstva/drivr/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <img alt="size" src="https://img.shields.io/github/repo-size/Udruga-Studenata-Racunalstva/usr-backend">
+  <img alt="size" src="https://img.shields.io/github/repo-size/Udruga-Studenata-Racunarstva/drivr">
+  <img src="https://travis-ci.com/Udruga-Studenata-Racunarstva/drivr.svg?branch=develop" alt="travis"/>
 </p>
-Backend/Api for usr company
+Internal CMS application for USR group
 
 ## Information
 

@@ -1,7 +1,7 @@
 {
-  "name": "usr-backend",
+  "name": "drivr",
   "version": "1.0.0",
-  "description": "backend for USR website",
+  "description": "Internal CMS for USR group",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
@@ -38,8 +38,7 @@
     "sequelize-cli": "^5.5.1"
   },
   "scripts": {
-    "test": "jest",
-    "js:lint": "eslint --ignore-path .gitignore .",
+    "test": "jest --passWithNoTests",
     "dev:start": "nodemon index.js | bunyan -o short -l debug",
     "db:create": "sequelize db:create",
     "db:drop": "sequelize db:drop",
