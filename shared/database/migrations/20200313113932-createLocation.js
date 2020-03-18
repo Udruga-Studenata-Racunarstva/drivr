@@ -26,5 +26,5 @@ module.exports = {
     },
   }),
 
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('location'),
+  down: (queryInterface) => queryInterface.dropTable('location'),
 };

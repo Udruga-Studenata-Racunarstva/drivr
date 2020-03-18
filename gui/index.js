@@ -4,9 +4,7 @@ const ctrl = require('./gui.controller');
 
 
 router
-  .get('/', checkIfAuthenticated, (req, res) => {
-    res.render('pages/index', { user: req.user });
-  })
+  .get('/', checkIfAuthenticated, ctrl.indexView)
   .get('/events', checkIfAuthenticated, (req, res) => {
     res.render('pages/events', { user: req.user });
   })

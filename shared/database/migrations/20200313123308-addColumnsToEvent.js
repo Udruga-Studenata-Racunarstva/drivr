@@ -26,7 +26,7 @@ module.exports = {
     ),
   ]),
 
-  down: (queryInterface, Sequelize) => [
+  down: (queryInterface) => [
     queryInterface.removeColumn('event', 'eventDate'),
     queryInterface.removeColumn('event', 'description'),
     queryInterface.removeColumn('event', 'imgUrl'),

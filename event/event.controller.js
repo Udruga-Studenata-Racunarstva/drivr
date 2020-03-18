@@ -52,13 +52,45 @@ const createEvent = (req, res) => {
     description,
     eventDate,
     locationId,
-  });
+  })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      logger.error(err);
+      res.sendStatus(404);
+    });
 };
 const deleteEvent = (req, res) => {
-
+  Event.delete({ where: { id: req.params.id } })
+    .then(() => {
+      res.sendStatus(201);
+    }).catch((err) => {
+      logger.error(err);
+      res.sendStatus(404);
+    });
 };
 const updateEvent = (req, res) => {
-
+  const {
+    type, description, eventDate, locationId,
+  } = req.body;
+  const { id } = req.params;
+  Event.update(
+    {
+      type,
+      description,
+      eventDate,
+      locationId,
+    },
+    { where: { id } },
+  )
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      logger.error(err);
+      res.sendStatus(404);
+    });
 };
 
 
