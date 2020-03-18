@@ -32,7 +32,7 @@
     "sequelize-cli": "^5.5.1"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "dev:start": "nodemon index.js | bunyan -o short -l debug",
     "db:create": "sequelize db:create",
     "db:drop": "sequelize db:drop",
