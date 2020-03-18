@@ -1,7 +1,7 @@
 {
-  "name": "usr-backend",
+  "name": "drivr",
   "version": "1.0.0",
-  "description": "backend for USR website",
+  "description": "Internal CMS for USR group",
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^4.0.0",
